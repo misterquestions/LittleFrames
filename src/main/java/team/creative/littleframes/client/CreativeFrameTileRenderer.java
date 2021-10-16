@@ -37,9 +37,14 @@ public class CreativeFrameTileRenderer extends TileEntitySpecialRenderer<TileEnt
         FrameDisplay display = frame.requestDisplay();
         if (display == null)
             return;
-        
-        display.prepare(frame.getURL(), frame.volume * Minecraft.getMinecraft().gameSettings.getSoundLevel(SoundCategory.MASTER), frame.playing, frame.loop, frame.tick);
-        
+
+        try {
+            display.prepare(frame.getURL(), frame.volume * Minecraft.getMinecraft().gameSettings.getSoundLevel(SoundCategory.MASTER), frame.playing, frame.loop, frame.tick);
+        } catch (Exception e) {
+            // We dont really care about the exception (at all?)
+        }
+
+
         GlStateManager.enableBlend();
         OpenGlHelper.glBlendFunc(770, 771, 1, 0);
         GlStateManager.disableLighting();
