@@ -20,6 +20,7 @@ import net.minecraft.util.EnumFacing.AxisDirection;
 import net.minecraft.util.SoundCategory;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import team.creative.littleframes.LittleFrames;
 import team.creative.littleframes.client.display.FrameDisplay;
 import team.creative.littleframes.common.block.TileEntityCreativeFrame;
 
@@ -41,7 +42,7 @@ public class CreativeFrameTileRenderer extends TileEntitySpecialRenderer<TileEnt
         try {
             display.prepare(frame.getURL(), frame.volume * Minecraft.getMinecraft().gameSettings.getSoundLevel(SoundCategory.MASTER), frame.playing, frame.loop, frame.tick);
         } catch (Exception e) {
-            // We dont really care about the exception (at all?)
+            System.out.println("Found exception" + e);
         }
 
 
